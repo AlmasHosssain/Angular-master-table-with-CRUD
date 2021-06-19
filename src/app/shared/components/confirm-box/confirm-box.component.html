@@ -1,0 +1,40 @@
+<!-- <div mat-dialog-title class="nav-tab-dark text-white" style="align-content: center">
+    <h1 class="pt-2 pb-2" align="center"><strong>ALERT</strong></h1>
+</div>
+<div mat-dialog-content>
+    <mat-card>
+        <ng-container>
+            <h3 align="center">Are you want to delete <b>{{this.data.name}}</b></h3>
+        </ng-container>
+    </mat-card>
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+    <button mat-button align="center" style="color: white;" (click)="closeDialog()" class="bg-success">Cancel</button>
+    <button mat-button align="center" style="color: white;" (click)="deleteData()" class="bg-danger">Delete</button>
+</div>
+ -->
+
+
+
+
+
+
+
+
+<div>
+    <h3 class="text-white" mat-dialog-title>CONFIRM..!</h3>
+    <mat-divider></mat-divider>
+    <mat-card-content class="pt-2">
+        <h4 style="text-align: center">Are you want to delete <br><b>{{this.data.name}}</b></h4>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions align="center" style="padding: 8px 0px 0px 0px !important; margin-bottom: -10px">
+        <button class="btn bg-danger" mat-button (click)="closeDialog()">
+      <span>Cancel</span>
+    </button>
+        <button cdkFocusInitial class="btn bg-success" mat-button (click)="deleteData()">
+      <span>Delete</span>
+    </button>
+    </mat-card-actions>
+</div>

@@ -1,0 +1,11 @@
+.editToolTip {
+    background-color: green;
+}
+
+.deleteToopTip {
+    background: #f14040;
+}
+
+a {
+    cursor: pointer;
+}

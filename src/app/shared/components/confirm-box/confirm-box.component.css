@@ -1,0 +1,14 @@
+.mat-dialog-container {
+    padding: 24px !important;
+}
+
+.mat-dialog-title {
+    background-color: #1D2345;
+    text-align: center;
+    margin: -24px -24px 20px;
+    padding: 8px;
+}
+
+button {
+    color: white;
+}

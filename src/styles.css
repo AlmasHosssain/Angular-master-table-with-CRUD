@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    font-family: 'Arial';
+}
+
+body {
+    margin: 0;
+    background-color: #E4E5E6;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px white;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 5px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #e4a1ff;
+}
+
+table {
+    width: 100%;
+}
+
+th,
+td {
+    padding: 10px !important;
+    width: 16%;
+}
+
+mat-form-field {
+    width: 40%;
+}
+
+.text-right {
+    /* text-align: center !important; */
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: rgb(228, 244, 247);
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.nav-tab-dark {
+    background-color: #1D2345;
+}

@@ -1,0 +1,47 @@
+<div class="mat-elevation-z8 mt-2 p-3">
+    <ng-container *ngIf="isFilterAble">
+        <mat-form-field>
+            <mat-icon class="searchIcon" matPrefix style="font-size: 1rem">search</mat-icon>
+            <mat-label>
+                Search Here
+            </mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="filter">
+        </mat-form-field>
+    </ng-container>
+
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortTable($event)">
+        <ng-container *ngFor="let column of tableColumn" [matColumnDef]="column.tableColumnName">
+            <ng-container *ngIf="column.isSortAble; else notSortAbleContainer">
+                <th style="color: black; font-size: 1rem;" mat-header-cell *matHeaderCellDef mat-sort-header [arrowPosition]="column.position === 'right' ? 'before' : 'after'">
+                    {{column.tableColumnName}}
+                </th>
+            </ng-container>
+            <ng-template #notSortAbleContainer>
+                <th style="color: black; font-size: 1rem;" mat-header-cell *matHeaderCellDef [class.text-right]="column.position == 'right'">
+                    {{column.tableColumnName}}
+                </th>
+            </ng-template>
+
+            <td mat-cell *matCellDef="let element" [class.text-right]="column.position == 'right'">
+                <ng-container *ngIf="!column.isAction; else actionBox">
+                    {{element | customDataPipe : column.key}}
+                </ng-container>
+
+                <ng-template #actionBox>
+                    <ng-container *ngFor="let item of column.action">
+                        <a *ngIf="item == 'update'" matTooltip="Edit" matTooltipClass="editToolTip" matTooltipPosition="left" class="mr-2">
+                            <mat-icon (click)="update(element)" style="color: green;">create</mat-icon>
+                        </a>
+                        <a *ngIf="item == 'delete'" matTooltip="Delete" matTooltipClass="deleteToopTip" matTooltipPosition="right">
+                            <mat-icon (click)="delete(element)" color="warn">delete_forever</mat-icon>
+                        </a>
+                    </ng-container>
+                </ng-template>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row class="example-element-row" *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [hidden]="!isPageAble" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

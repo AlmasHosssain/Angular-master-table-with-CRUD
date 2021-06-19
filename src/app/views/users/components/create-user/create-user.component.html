@@ -1,0 +1,49 @@
+<form [formGroup]="userForm">
+    <div mat-dialog-content style="max-height: 50vh;">
+        <mat-card style="text-align: center;">
+            <mat-card-title class="nav-tab-dark text-white">
+                <h1 mat-dialog-title class="pt-2 pb-2">{{data.dialogTitle}}</h1>
+            </mat-card-title>
+            <mat-card-content class="p-3">
+                <div class="row">
+                    <mat-form-field class="col-md-7">
+                        <mat-label>Entry your name</mat-label>
+                        <input required formControlName="userName" matInput [(ngModel)]="copy.name" placeholder="{{'Entry your name'}}">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-5">
+                        <mat-label>Entry your age</mat-label>
+                        <input required min="10" autocomplete="off" formControlName="userAge" matInput [(ngModel)]="copy.age" placeholder="{{'Entry your age'}}">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-7">
+                        <mat-label>Entry your department</mat-label>
+                        <input type="text" required placeholder="{{'Entry your department'}}" matInput [(ngModel)]="copy.dept" formControlName="dept" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredDept | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-5">
+                        <mat-label class="mat-label">Passing Year</mat-label>
+                        <input autocomplete="off" matInput formControlName="passingYear" [(ngModel)]="copy.year" required [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-md-5">
+                        <mat-label>Entry your result</mat-label>
+                        <input autocomplete="off" formControlName="result" matInput [(ngModel)]="copy.result" placeholder="{{'Entry your result'}}">
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-raised-button (click)="cancel()" style="color: white;" class="btn bg-danger">Cancel</button>
+        <button mat-raised-button (click)="save()" style="color: white;" cdkFocusInitial class="bg-success">Save</button>
+    </div>
+</form>

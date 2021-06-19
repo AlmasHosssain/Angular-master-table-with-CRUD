@@ -1,0 +1,20 @@
+<mat-toolbar class="headerPart">
+    <button mat-icon-button class="example-icon ml-3" aria-label="Example icon-button with menu icon" [routerLink]="['/']" routerLinkActive="router-link-active">
+</button>
+    <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+        <ul class="mt-3" fxLayout="row" fxLayoutGap="10px">
+            <li>
+                <button mat-icon-button>
+            <mat-icon>notifications
+            </mat-icon>
+         </button>
+            </li>
+            <li [routerLink]="['/admin/login']" routerLinkActive="router-link-active">
+                <button mat-icon-button>
+            <mat-icon>account_circle
+            </mat-icon>
+         </button>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>

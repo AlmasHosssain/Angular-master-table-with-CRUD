@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayoutAlign="center centre" class="mt-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-sm-10 offset-1">
+                <mat-card>
+                    <mat-card-title style="margin-top: 10px !important;">
+                        <mat-label class="font-lg" style="font-weight: bold;">Title Goes Here</mat-label>
+                    </mat-card-title>
+                    <div fxLayout="row" fxLayoutAlign="end start">
+                        <div>
+                            <button mat-raised-button class="btnBackground" mat-mini-fab matTooltip="Add a user" (click)="addCommitteeDesignation()" style="color: rgb(12, 11, 11); font-size: medium">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <app-table-view (deleteUser)="deleteUser($event)" (updateUser)="updateUser($event)" [isFilterAble]=true [tableData]="users" [isPageAble]=true [isSortAble]=true [tableColumn]="usersTableColumn" (sort)="sortData($event)"></app-table-view>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
